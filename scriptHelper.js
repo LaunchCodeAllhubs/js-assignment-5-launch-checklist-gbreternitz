@@ -100,7 +100,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         launchStatus.style = "color: #C7254E"
         errorsExist = true;
     } else {
-        launchStatus.innerHTML = "Shuttle is Ready for launch"
+        launchStatus.innerHTML = "Shuttle is Ready for Launch"
         launchStatus.style = "color: #419F6A"
     }
     
