@@ -1,5 +1,4 @@
 // Write your helper functions here!
-require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -30,42 +29,77 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   
+
     let validatePilot = validateInput(pilot);
     let validateCopilot = validateInput(copilot);
     let validateFuel = validateInput(fuelLevel);
     let validateCargo = validateInput(cargoLevel);
     let errorsExist = false;
+    let launchReady = true;
 
     if (validatePilot === "Empty" || validateCargo === "Empty" || validateFuel === "Empty" || validateCopilot === "Empty"){
         window.alert("Enter a value in every field.");
         errorsExist = true;
-        return errorsExist;
+        //return errorsExist;
     }
 
     if (validatePilot != "Not a Number"){
         window.alert("Pilot name must be a string.")
         errorsExist = true;
-        return errorsExist;
+        //return errorsExist;
     }
 
     if (validateCopilot != "Not a Number"){
         window.alert("Copilot name must be a string.")
         errorsExist = true;
-        return errorsExist;       
+        //return errorsExist;       
     }
 
     if (validateFuel != "Is a Number"){
         window.alert("Fuel Level must be a number.")
         errorsExist = true;
-        return errorsExist;       
+        //return errorsExist;       
     }
 
     if (validateCargo != "Is a Number"){
         window.alert("Cargo Mass must a number")
         errorsExist = true;
-        return errorsExist;       
+        //return errorsExist;       
     }
+    
+    pilotStatus = document.getElementById("pilotStatus");
+    copilotStatus = document.getElementById("copilotStatus");
+    fuelStatus = document.getElementById("fuelStatus");
+    cargoStatus = document.getElementById("cargoStatus");
+    launchStatus = document.getElementById("launchStatus");
+
+
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`
+    copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch.`
+    
+    if (fuelLevel < 10000){
+        fuelStatus.innerHTML = "Fuel level too low for launch"
+        launchReady = false;
+    } else {
+        fuelStatus.innerHTML = "Fuel level high enough for launch"
+    }
+
+    if (cargoLevel > 10000){
+        cargoStatus.innerHTML = "Cargo mass too heavy for launch"
+        launchReady = false;
+    } else {
+        cargoStatus.innerHTML = "Cargo mass low enough for launch"
+    }
+
+    if (!launchReady){
+        launchStatus.innerHTML = "Shuttle Not Ready for launch"
+        launchStatus.style = "color: #C7254E"
+    } else {
+        launchStatus.innerHTML = "Shuttle is ready for launch"
+        launchStatus.style = "color: #419F6A"
+    }
+    
+    list.style="visibility: visible"
 
     return errorsExist;
 }

@@ -13,21 +13,22 @@ window.addEventListener("load", function() {
 //        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
 //    })
    
-    let form = document.getElementById("launchForm");
+    //let form = document.getElementById("formSubmit");
+    let form = document.querySelector("form")
     form.addEventListener("submit", function(event){
     
         let pilot = document.getElementById("pilotName");
         let copilot = document.querySelector("input[name=copilotName]");
         let fuelLevel = document.querySelector("input[name=fuelLevel]");
         let cargoLevel = document.querySelector("input[name=cargoMass]");
-        let list;
+        let list = document.getElementById("faultyItems");
 
         let isFaulty = formSubmission(document, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
         
         if (isFaulty){
             event.preventDefault();
         }
-
+        event.preventDefault();
    })
 
 });
