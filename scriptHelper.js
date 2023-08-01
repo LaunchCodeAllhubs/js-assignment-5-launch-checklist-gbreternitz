@@ -76,8 +76,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     launchStatus = document.getElementById("launchStatus");
 
 
-    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch.`
-    copilotStatus.innerHTML = `Copilot ${copilot} is ready for launch.`
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
     
     if (fuelLevel < 10000){
         fuelStatus.innerHTML = "Fuel level too low for launch"
@@ -96,7 +96,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
 
     if (!launchReady){
-        launchStatus.innerHTML = "Shuttle Not Ready for launch"
+        launchStatus.innerHTML = "Shuttle Not Ready for Launch"
         launchStatus.style = "color: #C7254E"
         errorsExist = true;
     } else {

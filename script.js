@@ -32,6 +32,7 @@ window.addEventListener("load", function() {
         if (isFaulty){
             event.preventDefault();
         }
+        event.preventDefault();
    })
 
 });
