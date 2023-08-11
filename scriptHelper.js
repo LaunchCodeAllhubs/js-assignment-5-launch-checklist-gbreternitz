@@ -52,7 +52,8 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
 
     if (validateCopilot != "Not a Number"){
-        window.alert("Copilot name must be a string.")
+        //window.alert("Copilot name must be a string.")
+        alert("Copilot name must be a string.")
         errorsExist = true;
         return errorsExist;       
     }
